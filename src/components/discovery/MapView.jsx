@@ -16,22 +16,20 @@ L.Icon.Default.mergeOptions({
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-// Custom Green Icon for providers
+// Branded Drone Icon for providers - Circular version with SVG Drone
 const createCustomIcon = (isActive) => L.divIcon({
     html: `
         <div class="relative flex flex-col items-center">
-            <div class="w-8 h-8 ${isActive ? 'bg-[#154a21] scale-125' : 'bg-[#2e7d32]'} rounded-full border-2 border-white shadow-lg flex items-center justify-center transition-all duration-300">
-                <svg viewBox="0 0 24 24" width="16" height="16" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                </svg>
+            <div class="w-12 h-12 ${isActive ? 'bg-[#154a21] scale-110' : 'bg-[#154a21]'} rounded-full border-2 border-white shadow-2xl flex items-center justify-center transition-all duration-300 p-2">
+                <img src="/droneimg.png" class="w-full h-full object-contain" alt="drone" />
             </div>
-            <div class="w-1 h-2 bg-[#2e7d32] -mt-0.5"></div>
+            <div class="w-2 h-3 bg-[#154a21] -mt-1 shadow-lg rounded-b-full"></div>
         </div>
     `,
     className: 'custom-div-icon',
-    iconSize: [32, 40],
-    iconAnchor: [16, 40],
-    popupAnchor: [0, -40]
+    iconSize: [48, 60],
+    iconAnchor: [24, 60],
+    popupAnchor: [0, -60]
 });
 
 // Component to handle map center changes

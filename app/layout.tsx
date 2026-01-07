@@ -14,8 +14,17 @@ const anekTelugu = Anek_Telugu({
 });
 
 export const metadata: Metadata = {
-  title: "AP Drone Service Portal",
+  title: "Drone Mart - AP Govt",
   description: "Transforming Agriculture & Surveillance through Technology",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Drone Mart",
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
