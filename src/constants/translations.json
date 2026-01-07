@@ -1,0 +1,612 @@
+{
+    "en": {
+        "common": {
+            "home": "Home",
+            "back": "Back",
+            "next": "Next",
+            "submit": "Submit",
+            "cancel": "Cancel",
+            "login": "Login",
+            "logout": "Logout",
+            "profile": "Profile",
+            "settings": "Settings",
+            "help": "Help",
+            "loading": "Loading...",
+            "error": "An error occurred",
+            "success": "Success",
+            "languageToggle": "తె"
+        },
+        "header": {
+            "govt": "Govt. of Andhra Pradesh",
+            "portal": "DRONE PORTAL",
+            "nav": {
+                "services": "Services",
+                "shop": "Shop",
+                "myBookings": "My Bookings"
+            },
+            "auth": {
+                "signIn": "Sign In",
+                "signUp": "Sign Up"
+            }
+        },
+        "portalSelection": {
+            "portalTitle": "AP Drone Service Portal",
+            "subtitle": "Transforming Agriculture & Surveillance through Technology",
+            "tagline": "Empowering farmers and businesses with accessible drone services",
+            "selectPortal": "Select a Portal to Continue",
+            "customer": {
+                "title": "Customer Portal",
+                "description": "Book drone services, track orders, purchase equipment and accessories",
+                "features": "Services • Tracking • E-commerce • Support"
+            },
+            "provider": {
+                "title": "Service Provider Portal",
+                "description": "Manage services, drones, pilots, bookings, and track your earnings",
+                "features": "Services • Bookings • Revenue • Analytics"
+            },
+            "department": {
+                "title": "Department Dashboard",
+                "description": "Monitor operations, verify providers, analyze service data and compliance",
+                "features": "Verification • Analytics • Monitoring • Compliance"
+            },
+            "admin": {
+                "title": "Admin Panel",
+                "description": "Complete system configuration, user management and oversight",
+                "features": "Configuration • Users • Security • Reports"
+            }
+        },
+        "footer": {
+            "copyright": "© 2025 Government of Andhra Pradesh. All rights reserved.",
+            "poweredBy": "Powered by AP State Innovation Cell"
+        },
+        "customer": {
+            "discovery": {
+                "pageTitle": "Find Drone Service Providers",
+                "pageSubtitle": "Connect with certified drone service providers across Andhra Pradesh",
+                "back": "Back to Portal",
+                "viewMode": "View Mode",
+                "gridView": "Grid View",
+                "mapView": "Map View",
+                "search": {
+                    "placeholder": "Search by provider name, location, or district...",
+                    "clear": "Clear Search"
+                },
+                "filters": {
+                    "title": "Filters",
+                    "clearAll": "Clear All",
+                    "apply": "Apply Filters",
+                    "showFilters": "Show Filters",
+                    "hideFilters": "Hide Filters",
+                    "serviceType": {
+                        "title": "Service Type",
+                        "all": "All Services",
+                        "agriculture": "Agriculture Spraying",
+                        "surveillance": "Surveillance & Monitoring",
+                        "mapping": "Mapping & Land Surveying",
+                        "inspection": "Infrastructure Inspection",
+                        "photography": "Aerial Photography & Videography",
+                        "delivery": "Delivery Services"
+                    },
+                    "availability": {
+                        "title": "Availability",
+                        "all": "All Providers",
+                        "availableToday": "Available Today",
+                        "availableWeek": "Available This Week",
+                        "scheduleOnly": "Schedule Later"
+                    },
+                    "rating": {
+                        "title": "Minimum Rating",
+                        "any": "Any Rating",
+                        "4plus": "4 Stars & Above",
+                        "45plus": "4.5 Stars & Above",
+                        "3plus": "3 Stars & Above"
+                    },
+                    "priceRange": {
+                        "title": "Price Range (per slot)",
+                        "any": "Any Price",
+                        "budget": "Budget: ₹500 - ₹2,000",
+                        "standard": "Standard: ₹2,000 - ₹5,000",
+                        "premium": "Premium: ₹5,000+"
+                    },
+                    "district": {
+                        "title": "District",
+                        "all": "All Districts",
+                        "anantapur": "Anantapur",
+                        "chittoor": "Chittoor",
+                        "eastGodavari": "East Godavari",
+                        "guntur": "Guntur",
+                        "kadapa": "Kadapa",
+                        "krishna": "Krishna",
+                        "kurnool": "Kurnool",
+                        "prakasam": "Prakasam",
+                        "nellore": "Nellore",
+                        "srikakulam": "Srikakulam",
+                        "visakhapatnam": "Visakhapatnam",
+                        "vizianagaram": "Vizianagaram",
+                        "westGodavari": "West Godavari"
+                    }
+                },
+                "sorting": {
+                    "label": "Sort By",
+                    "nearest": "Nearest to Me",
+                    "highestRated": "Highest Rated",
+                    "lowestPrice": "Lowest Price",
+                    "mostReviewed": "Most Reviewed",
+                    "mostExperienced": "Most Experienced"
+                },
+                "results": {
+                    "showing": "Showing",
+                    "of": "of",
+                    "providers": "providers",
+                    "found": "found",
+                    "noResults": "No service providers found",
+                    "noResultsDesc": "Try adjusting your filters or search criteria",
+                    "requestLocation": "Enable location to see nearest providers",
+                    "loading": "Loading service providers..."
+                },
+                "providerCard": {
+                    "from": "From",
+                    "perSlot": "per slot",
+                    "distance": "km away",
+                    "servicesCompleted": "services completed",
+                    "availableDrones": "drones available",
+                    "viewDetails": "View Details",
+                    "view": "View",
+                    "availableToday": "Available Today",
+                    "verified": "Verified",
+                    "reviews": "reviews",
+                    "startsFrom": "Starts From"
+                },
+                "map": {
+                    "yourLocation": "Your Location",
+                    "clickMarker": "Click on a marker to view provider details",
+                    "enableLocation": "Enable Location",
+                    "locationDisabled": "Location access is disabled",
+                    "zoomIn": "Zoom In",
+                    "zoomOut": "Zoom Out",
+                    "resetView": "Reset View",
+                    "myLocation": "My Location",
+                    "legend": "Map Legend"
+                },
+                "location": {
+                    "title": "Enable Location Access",
+                    "description": "Allow location access to find service providers near you",
+                    "allow": "Enable Location",
+                    "deny": "Skip for Now",
+                    "denied": "Location Access Denied"
+                }
+            },
+            "shop": {
+                "title": "Premium Drones & Genuine Parts",
+                "searchPlaceholder": "Search drones, parts, accessories...",
+                "categories": {
+                    "all": "All",
+                    "drones": "Drones",
+                    "parts": "Parts",
+                    "accessories": "Accessories"
+                },
+                "price": "Price",
+                "viewCart": "View Cart",
+                "noProducts": "No products found",
+                "noProductsDesc": "Try adjusting your search or filters"
+            },
+            "product": {
+                "msrp": "MSRP Price",
+                "buyNow": "Buy Now",
+                "addToCart": "Add to Cart",
+                "fastDelivery": "Fast Delivery",
+                "warranty": "AP-Gov Warranty",
+                "tabs": {
+                    "specs": "Specs",
+                    "warranty": "Warranty",
+                    "warrantyDesc": "This official Andhra Pradesh Govt drone comes with a 1-year comprehensive warranty covering all electrical parts and components. Service support is available through our state-wide service provider network."
+                }
+            },
+            "providerDetails": {
+                "title": "Provider Profile",
+                "about": "About the Provider",
+                "certifications": "Certifications & Licenses",
+                "servicesOffered": "Services Offered",
+                "reviews": "Ratings & Reviews",
+                "bookNow": "Proceed to Booking",
+                "selectService": "Select a Service",
+                "priceInfo": "Starting from",
+                "duration": "Estimated Duration",
+                "minutes": "mins",
+                "noReviews": "No reviews yet for this provider",
+                "verifiedBadge": "DGCA Verified Professional",
+                "missionsDone": "Missions Done",
+                "instantBooking": "Instant Booking",
+                "safeSecure": "Safe & Secure",
+                "govVerified": "Govt. Verified Personnel",
+                "total": "Total",
+                "continueToSlots": "Continue to Slots"
+            },
+            "booking": {
+                "title": "Book Your Service",
+                "selectDate": "Select Date",
+                "selectSlot": "Select Time Slot",
+                "slotAvailable": "Available",
+                "slotBlocked": "Temporarily Blocked",
+                "slotBooked": "Booked",
+                "morning": "Morning",
+                "afternoon": "Afternoon",
+                "evening": "Evening",
+                "confirmBooking": "Confirm Booking",
+                "summary": "Booking Summary",
+                "totalAmount": "Total Amount",
+                "privacyNotice": "I agree to share my contact details with the service provider for service execution.",
+                "otpTitle": "Verify Mobile Number",
+                "otpDesc": "Proceed with booking by verifying your mobile number",
+                "sendOtp": "Send OTP",
+                "verifyOtp": "Verify & Continue",
+                "success": "Booking Confirmed!",
+                "successDesc": "Your drone service has been scheduled successfully.",
+                "viewBookings": "View My Bookings"
+            },
+            "checkout": {
+                "title": "Secure Checkout",
+                "cancel": "Cancel Checkout",
+                "signIn": "Final Step: Sign In",
+                "signInDesc": "Please identify yourself to confirm booking",
+                "mobile": "Mobile Number",
+                "password": "Password",
+                "signInAndPay": "Sign In & Pay",
+                "verifying": "Verifying...",
+                "noAccount": "Don't have an account?",
+                "createOne": "Create one",
+                "createAccount": "Create a New Account",
+                "registerDesc": "Join the AP Drone network to start booking",
+                "registerAndPay": "Register & Pay",
+                "haveAccount": "Already have an account?",
+                "fullName": "Full Name",
+                "selectPayment": "Select Payment",
+                "totalAmount": "Total Amount",
+                "paySecurely": "Pay Securely",
+                "paymentConfirmed": "Payment for ₹{amount} confirmed!",
+                "transactionId": "Transaction ID",
+                "missionId": "Mission ID",
+                "processing": "Processing...",
+                "methods": {
+                    "upi": "UPI (GPay, PhonePe)",
+                    "cards": "Credit / Debit Cards",
+                    "netbanking": "Net Banking"
+                },
+                "secureNote": "Your payment is secure with AP Gov standard encryption. Data is handled per state IT policy.",
+                "summary": "Summary",
+                "serviceFee": "Service Fee",
+                "convenienceFee": "Convenience Fee"
+            },
+            "history": {
+                "title": "My Bookings",
+                "backToDirectory": "Back to Directory",
+                "id": "ID",
+                "fee": "Fee",
+                "track": "Track Mission",
+                "report": "View Report",
+                "rate": "Rate Service",
+                "contact": "Contact Pilot",
+                "noBookings": "No bookings yet",
+                "noBookingsDesc": "Ready to book your first mission? Our pilots are standing by.",
+                "findProviders": "Find Providers",
+                "status": {
+                    "scheduled": "Scheduled",
+                    "accepted": "Accepted",
+                    "in-progress": "In Progress",
+                    "completed": "Completed"
+                },
+                "support": {
+                    "title": "Need Mission Support?",
+                    "desc": "Our command center is available 24/7 to assist with flight scheduling or technical grievances.",
+                    "call": "Toll-Free Call",
+                    "whatsapp": "WhatsApp"
+                }
+            }
+        }
+    },
+    "te": {
+        "common": {
+            "home": "హోమ్",
+            "back": "వెనుకకు",
+            "next": "తరువాత",
+            "submit": "సమర్పించు",
+            "cancel": "రద్దు చేయి",
+            "login": "లాగిన్",
+            "logout": "లాగ్ అవుట్",
+            "profile": "ప్రొఫైల్",
+            "settings": "సెట్టింగ్‌లు",
+            "help": "సహాయం",
+            "loading": "లోడ్ అవుతోంది...",
+            "error": "ఒక లోపం సంభవించింది",
+            "success": "విజయం",
+            "languageToggle": "EN"
+        },
+        "header": {
+            "govt": "ఆంధ్రప్రదేశ్ ప్రభుత్వం",
+            "portal": "డ్రోన్ పోర్టల్",
+            "nav": {
+                "services": "సేవలు",
+                "shop": "షాపు",
+                "myBookings": "నా బుకింగ్‌లు"
+            },
+            "auth": {
+                "signIn": "లాగిన్",
+                "signUp": "సైన్ అప్"
+            }
+        },
+        "portalSelection": {
+            "portalTitle": "ఏపీ డ్రోన్ సర్వీస్ పోర్టల్",
+            "subtitle": "సాంకేతికతతో వ్యవసాయం మరియు నిఘాలో విప్లవాత్మక మార్పులు",
+            "tagline": "అందుబాటులో ఉన్న డ్రోన్ సేవలతో రైతులు మరియు వ్యాపారవేత్తలను శక్తివంతం చేయడం",
+            "selectPortal": "కొనసాగించడానికి ఒక పోర్టల్‌ను ఎంచుకోండి",
+            "customer": {
+                "title": "కస్టమర్ పోర్టల్",
+                "description": "డ్రోన్ సర్వీసులను బుక్ చేయండి, ఆర్డర్‌లను ట్రాక్ చేయండి, పరికరాలు మరియు విడిభాగాలను కొనుగులు చేయండి",
+                "features": "సేవలు • ట్రాకింగ్ • ఇ-కామర్స్ • మద్దతు"
+            },
+            "provider": {
+                "title": "సర్వీస్ ప్రొవైడర్ పోర్టల్",
+                "description": "సేవలు, డ్రోన్‌లు, పైలట్లు, బుకింగ్‌లను నిర్వహించండి మరియు మీ ఆదాయాన్ని ట్రాక్ చేయండి",
+                "features": "సేవలు • బుకింగ్‌లు • ఆదాయం • విశ్లేషణలు"
+            },
+            "department": {
+                "title": "డిపార్ట్‌మెంట్ డ్యాష్‌బోర్డ్",
+                "description": "కార్యకలాపాలను పర్యవేక్షించండి, ప్రొవైడర్లను ధృవీకరించండి, సేవా డేటా మరియు సమ్మతిని విశ్లేషించండి",
+                "features": "ధృవీకరణ • విశ్లేషణలు • పర్యవేక్షణ • సమ్మతి"
+            },
+            "admin": {
+                "title": "అడ్మిన్ ప్యానెల్",
+                "description": "పూర్తి వ్యవస్థ కాన్ఫిగరేషన్, వినియోగదారు నిర్వహణ మరియు పర్యవేక్షణ",
+                "features": "కాన్ఫిగరేషన్ • వినియోగదారులు • భద్రత • నివేదికలు"
+            }
+        },
+        "footer": {
+            "copyright": "© 2025 ఆంధ్రప్రదేశ్ ప్రభుత్వం. అన్ని హక్కులు ప్రత్యేకించబడ్డాయి.",
+            "poweredBy": "ఏపీ స్టేట్ ఇన్నోవేషన్ సెల్ ద్వారా ఆధారితం"
+        },
+        "customer": {
+            "discovery": {
+                "pageTitle": "డ్రోన్ సర్వీస్ ప్రొవైడర్‌లను కనుగొనండి",
+                "pageSubtitle": "ఆంధ్రప్రదేశ్ అంతటా ధృవీకరించబడిన డ్రోన్ సర్వీస్ ప్రొవైడర్‌లతో కనెక్ట్ అవ్వండి",
+                "back": "పోర్టల్‌కు తిరిగి వెళ్లండి",
+                "viewMode": "వీక్షణ మోడ్",
+                "gridView": "గ్రిడ్ వీక్షణ",
+                "mapView": "మ్యాప్ వీక్షణ",
+                "search": {
+                    "placeholder": "ప్రొవైడర్ పేరు, ప్రాంతం లేదా జిల్లా ద్వారా వెతకండి...",
+                    "clear": "వెతుకులాటను తుడిచివేయి"
+                },
+                "filters": {
+                    "title": "ఫిల్టర్‌లు",
+                    "clearAll": "అన్నీ తుడిచివేయి",
+                    "apply": "ఫిల్టర్‌లను వర్తింపజేయి",
+                    "showFilters": "ఫిల్టర్‌లను చూపించు",
+                    "hideFilters": "ఫిల్టర్‌లను దాచు",
+                    "serviceType": {
+                        "title": "సేవ రకం",
+                        "all": "అన్ని సేవలు",
+                        "agriculture": "వ్యవసాయ పిచికారీ",
+                        "surveillance": "నిఘా & పర్యవేక్షణ",
+                        "mapping": "మ్యాపింగ్ & భూ సర్వే",
+                        "inspection": "మౌలిక సదుపాయాల తనిఖీ",
+                        "photography": "ఏరియల్ ఫోటోగ్రఫీ & వీడియోగ్రఫీ",
+                        "delivery": "డెలివరీ సేవలు"
+                    },
+                    "availability": {
+                        "title": "అందుబాటు",
+                        "all": "అన్ని ప్రొవైడర్లు",
+                        "availableToday": "ఈరోజు అందుబాటులో ఉంది",
+                        "availableWeek": "ఈ వారం అందుబాటులో ఉంది",
+                        "scheduleOnly": "తరువాత షెడ్యూల్ చేయండి"
+                    },
+                    "rating": {
+                        "title": "కనీస రేటింగ్",
+                        "any": "ఏ రేటింగ్ అయినా",
+                        "4plus": "4 స్టార్లు & అంతకంటే ఎక్కువ",
+                        "45plus": "4.5 స్టార్లు & అంతకంటే ఎక్కువ",
+                        "3plus": "3 స్టార్లు & అంతకంటే ఎక్కువ"
+                    },
+                    "priceRange": {
+                        "title": "ధర పరిధి (స్లాట్‌కు)",
+                        "any": "ఏ ధర అయినా",
+                        "budget": "బడ్జెట్: ₹500 - ₹2,000",
+                        "standard": "ప్రామాణికం: ₹2,000 - ₹5,000",
+                        "premium": "ప్రీమియం: ₹5,000+"
+                    },
+                    "district": {
+                        "title": "జిల్లా",
+                        "all": "అన్ని జిల్లాలు",
+                        "anantapur": "అనంతపురం",
+                        "chittoor": "చిత్తూరు",
+                        "eastGodavari": "తూర్పు గోదావరి",
+                        "guntur": "గుంటూరు",
+                        "kadapa": "కడప",
+                        "krishna": "కృష్ణా",
+                        "kurnool": "కర్నూలు",
+                        "prakasam": "ప్రకాశం",
+                        "nellore": "నెల్లూరు",
+                        "srikakulam": "శ్రీకాకుళం",
+                        "visakhapatnam": "విశాఖపట్నం",
+                        "vizianagaram": "విజయనగరం",
+                        "westGodavari": "పశ్చిమ గోదావరి"
+                    }
+                },
+                "sorting": {
+                    "label": "దీని ప్రకారం క్రమబద్ధీకరించు",
+                    "nearest": "నాకు దగ్గరగా ఉన్నవి",
+                    "highestRated": "అత్యధిక రేటింగ్ పొందినవి",
+                    "lowestPrice": "అతి తక్కువ ధర",
+                    "mostReviewed": "ఎక్కువ సమీక్షలు ఉన్నవి",
+                    "mostExperienced": "అనుభవజ్ఞులైనవి"
+                },
+                "results": {
+                    "showing": "చూపిస్తోంది",
+                    "of": "/",
+                    "providers": "ప్రొవైడర్లు",
+                    "found": "కనుగొనబడ్డాయి",
+                    "noResults": "సర్వీస్ ప్రొవైడర్లు ఎవరూ కనుగొనబడలేదు",
+                    "noResultsDesc": "మీ ఫిల్టర్‌లు లేదా అన్వేషణను మార్చడానికి ప్రయత్నించండి",
+                    "requestLocation": "దగ్గరలో ఉన్న ప్రొవైడర్లను చూడటానికి లొకేషన్ ఎనేబుల్ చేయండి",
+                    "loading": "సర్వీస్ ప్రొవైడర్లను లోడ్ చేస్తోంది..."
+                },
+                "providerCard": {
+                    "from": "నుండి",
+                    "perSlot": "స్లాట్‌కు",
+                    "distance": "కిమీ దూరంలో",
+                    "servicesCompleted": "సేవలు పూర్తయ్యాయి",
+                    "availableDrones": "డ్రోన్‌లు అందుబాటులో ఉన్నాయి",
+                    "viewDetails": "వివరాలను చూడండి",
+                    "view": "చూడండి",
+                    "availableToday": "ఈరోజు అందుబాటులో ఉంది",
+                    "verified": "ధృవీకరించబడింది",
+                    "reviews": "సమీక్షలు",
+                    "startsFrom": "నుండి ప్రారంభం"
+                },
+                "map": {
+                    "yourLocation": "మీ లొకేషన్",
+                    "clickMarker": "ప్రొవైడర్ వివరాలను చూడటానికి మార్కర్‌పై క్లిక్ చేయండి",
+                    "enableLocation": "లొకేషన్ ఎనేబుల్ చేయండి",
+                    "locationDisabled": "లొకేషన్ యాక్సెస్ నిలిపివేయబడింది",
+                    "zoomIn": "జూమ్ ఇన్",
+                    "zoomOut": "జూమ్ అవుట్",
+                    "resetView": "వీక్షణను రీసెట్ చేయండి",
+                    "myLocation": "నా లొకేషన్",
+                    "legend": "మ్యాప్ లెజెండ్"
+                },
+                "location": {
+                    "title": "లొకేషన్ యాక్సెస్‌ను ఎనేబుల్ చేయండి",
+                    "description": "మీకు దగ్గరగా ఉన్న సర్వీస్ ప్రొవైడర్లను కనుగొనడానికి లొకేషన్ యాక్సెస్‌ను అనుమతించండి",
+                    "allow": "లొకేషన్ ఎనేబుల్ చేయండి",
+                    "deny": "ప్రస్తుతానికి వద్దు",
+                    "denied": "లొకేషన్ యాక్సెస్ నిరాకరించబడింది"
+                }
+            },
+            "shop": {
+                "title": "ప్రీమియం డ్రోన్‌లు & అసలు విడిభాగాలు",
+                "searchPlaceholder": "డ్రోన్‌లు, విడిభాగాలు, యాక్సెసరీలను వెతకండి...",
+                "categories": {
+                    "all": "అన్నీ",
+                    "drones": "డ్రోన్‌లు",
+                    "parts": "విడిభాగాలు",
+                    "accessories": "యాక్సెసరీలు"
+                },
+                "price": "ధర",
+                "viewCart": "కార్ట్‌ను చూడండి",
+                "noProducts": "ఉత్పత్తులు ఏవీ కనుగొనబడలేదు",
+                "noProductsDesc": "మీ వెతుకులాట లేదా ఫిల్టర్‌లను మార్చడానికి ప్రయత్నించండి"
+            },
+            "product": {
+                "msrp": "ఎంఎస్ఆర్‌పి ధర",
+                "buyNow": "ఇప్పుడే కొనండి",
+                "addToCart": "కార్ట్‌కు జోడించండి",
+                "fastDelivery": "వేగవంతమైన డెలివరీ",
+                "warranty": "ఏపీ-గోవ్ వారంటీ",
+                "tabs": {
+                    "specs": "వివరాలు",
+                    "warranty": "వారంటీ",
+                    "warrantyDesc": "ఈ అధికారిక ఆంధ్రప్రదేశ్ ప్రభుత్వ డ్రోన్ అన్ని ఎలక్ట్రికల్ భాగాలు మరియు విడిభాగాలను కవర్ చేస్తూ 1-సంవత్సరం సమగ్ర వారంటీతో వస్తుంది. మా రాష్ట్రవ్యాప్త సేవా ప్రదాత నెట్‌వర్క్ ద్వారా సేవా మద్దతు అందుబాటులో ఉంది."
+                }
+            },
+            "providerDetails": {
+                "title": "ప్రొవైడర్ ప్రొఫైల్",
+                "about": "ప్రొవైడర్ గురించి",
+                "certifications": "ధృవీకరణ పత్రాలు & లైసెన్సులు",
+                "servicesOffered": "అందించే సేవలు",
+                "reviews": "రేటింగ్‌లు & సమీక్షలు",
+                "bookNow": "బుకింగ్‌కు వెళ్లండి",
+                "selectService": "ఒక సేవను ఎంచుకోండి",
+                "priceInfo": "నుండి ప్రారంభం",
+                "duration": "అంచనా సమయం",
+                "minutes": "నిమిషాలు",
+                "noReviews": "ఈ ప్రొవైడర్‌కు ఇంకా సమీక్షలు లేవు",
+                "verifiedBadge": "DGCA ధృవీకరించబడిన ప్రొఫెషనల్",
+                "missionsDone": "సేవలు పూర్తయ్యాయి",
+                "instantBooking": "తక్షణ బుకింగ్",
+                "safeSecure": "సురక్షితం",
+                "govVerified": "ప్రభుత్వ ధృవీకృత సిబ్బంది",
+                "total": "మొత్తం",
+                "continueToSlots": "స్లాట్‌లకు కొనసాగండి"
+            },
+            "booking": {
+                "title": "మీ సేవను బుక్ చేయండి",
+                "selectDate": "తేదీని ఎంచుకోండి",
+                "selectSlot": "సమయాన్ని ఎంచుకోండి",
+                "slotAvailable": "అందుబాటులో ఉంది",
+                "slotBlocked": "తాత్కాలికంగా నిలిపివేయబడింది",
+                "slotBooked": "బుక్ చేయబడింది",
+                "morning": "ఉదయం",
+                "afternoon": "మధ్యాహ్నం",
+                "evening": "సాయంత్రం",
+                "confirmBooking": "బుకింగ్‌ను ఖరారు చేయండి",
+                "summary": "బుకింగ్ సారాంశం",
+                "totalAmount": "మొత్తం ధర",
+                "privacyNotice": "సేవా నిర్వహణ కోసం నా సంప్రదింపు వివరాలను సర్వీస్ ప్రొవైడర్‌తో పంచుకోవడానికి నేను అంగీకరిస్తున్నాను.",
+                "otpTitle": "మొబైల్ నంబర్‌ను నిర్ధారించండి",
+                "otpDesc": "మీ మొబైల్ నంబర్‌ను నిర్ధారించడం ద్వారా బుకింగ్‌ను కొనసాగించండి",
+                "sendOtp": "OTP పంపండి",
+                "verifyOtp": "నిర్ధారించి కొనసాగించండి",
+                "success": "బుకింగ్ ఖరారు చేయబడింది!",
+                "successDesc": "మీ డ్రోన్ సేవ విజయవంతంగా షెడ్యూల్ చేయబడింది.",
+                "viewBookings": "నా బుకింగ్‌లను చూడండి"
+            },
+            "checkout": {
+                "title": "సురక్షిత చెక్అవుట్",
+                "cancel": "చెక్అవుట్ రద్దు చేయి",
+                "signIn": "చివరి దశ: లాగిన్",
+                "signInDesc": "బుకింగ్‌ను ఖరారు చేయడానికి దయచేసి లాగిన్ అవ్వండి",
+                "mobile": "మొబైల్ సంఖ్య",
+                "password": "పాస్‌వర్డ్",
+                "signInAndPay": "లాగిన్ & చెల్లింపు",
+                "verifying": "ధృవీకరిస్తోంది...",
+                "noAccount": "ఖాతా లేదా?",
+                "createOne": "ఒకటి సృష్టించండి",
+                "createAccount": "కొత్త ఖాతాను సృష్టించండి",
+                "registerDesc": "బుకింగ్ ప్రారంభించడానికి ఏపీ డ్రోన్ నెట్‌వర్క్‌లో చేరండి",
+                "registerAndPay": "నమోదు మరియు చెల్లింపు",
+                "haveAccount": "ఇప్పటికే ఖాతా ఉందా?",
+                "fullName": "పూర్తి పేరు",
+                "selectPayment": "చెల్లింపును ఎంచుకోండి",
+                "totalAmount": "మొత్తం ధర",
+                "paySecurely": "సురక్షితంగా చెల్లించండి",
+                "paymentConfirmed": "₹{amount} కి చెల్లింపు నిర్ధారించబడింది!",
+                "transactionId": "ట్రాన్సాక్షన్ ఐడీ",
+                "missionId": "మిషన్ ఐడీ",
+                "processing": "ప్రాసెస్ అవుతోంది...",
+                "methods": {
+                    "upi": "యూపీఐ (జీపే, ఫోన్ పే)",
+                    "cards": "క్రెడిట్ / డెబిట్ కార్డులు",
+                    "netbanking": "నెట్ బ్యాంకింగ్"
+                },
+                "secureNote": "మాష్ట్ర ఐటీ పాలసీ ప్రకారం మీ డేటా హ్యాండిల్ చేయబడుతుంది. ఏపీ ప్రభుత్వం ప్రామాణిక ఎన్‌క్రిప్షన్‌తో మీ చెల్లింపు సురక్షితం.",
+                "summary": "సారాంశం",
+                "serviceFee": "సర్వీస్ ఫీజు",
+                "convenienceFee": "కన్వీనియన్స్ ఫీజు"
+            },
+            "history": {
+                "title": "నా బుకింగ్‌లు",
+                "backToDirectory": "డైరెక్టరీకి తిరిగి వెళ్లండి",
+                "id": "ఐడీ",
+                "fee": "రుసుము",
+                "track": "మిషన్‌ను ట్రాక్ చేయండి",
+                "report": "నివేదిక చూడండి",
+                "rate": "రేటింగ్ ఇవ్వండి",
+                "contact": "పైలట్‌ను సంప్రదించండి",
+                "noBookings": "ఇంకా బుకింగ్‌లు లేవు",
+                "noBookingsDesc": "మీ మొదటి సేవను బుక్ చేసుకోవడానికి సిద్ధంగా ఉన్నారా? మా పైలట్లు వేచి ఉన్నారు.",
+                "findProviders": "ప్రొవైడర్లను కనుగొనండి",
+                "status": {
+                    "scheduled": "షెడ్యూల్ చేయబడింది",
+                    "accepted": "అంగీకరించబడింది",
+                    "in-progress": "పురోగతిలో ఉంది",
+                    "completed": "పూర్తయింది"
+                },
+                "support": {
+                    "title": "సహాయం కావాలా?",
+                    "desc": "ఫ్లైట్ షెడ్యూలింగ్ లేదా ఇతర సమస్యల కోసం మా కమాండ్ సెంటర్ 24/7 అందుబాటులో ఉంటుంది.",
+                    "call": "టోల్-ఫ్రీ కాల్",
+                    "whatsapp": "వాట్సాప్"
+                }
+            }
+        }
+    }
+}
