@@ -30,17 +30,17 @@
             }
         },
         "portalSelection": {
-            "portalTitle": "AP Drone Service Portal",
+            "portalTitle": "AP Drone Mart",
             "subtitle": "Transforming Agriculture & Surveillance through Technology",
             "tagline": "Empowering farmers and businesses with accessible drone services",
             "selectPortal": "Select a Portal to Continue",
             "customer": {
-                "title": "Customer Portal",
+                "title": "Customer Mart",
                 "description": "Book drone services, track orders, purchase equipment and accessories",
                 "features": "Services • Tracking • E-commerce • Support"
             },
             "provider": {
-                "title": "Service Provider Portal",
+                "title": "Service Provider Mart",
                 "description": "Manage services, drones, pilots, bookings, and track your earnings",
                 "features": "Services • Bookings • Revenue • Analytics"
             },
@@ -63,7 +63,7 @@
             "discovery": {
                 "pageTitle": "Find Drone Service Providers",
                 "pageSubtitle": "Connect with certified drone service providers across Andhra Pradesh",
-                "back": "Back to Portal",
+                "back": "Back to Mart",
                 "viewMode": "View Mode",
                 "gridView": "Grid View",
                 "mapView": "Map View",
@@ -323,7 +323,7 @@
         },
         "header": {
             "govt": "ఆంధ్రప్రదేశ్ ప్రభుత్వం",
-            "portal": "డ్రోన్ పోర్టల్",
+            "portal": "డ్రోన్ మార్ట్",
             "nav": {
                 "services": "సేవలు",
                 "shop": "షాపు",
@@ -335,17 +335,17 @@
             }
         },
         "portalSelection": {
-            "portalTitle": "ఏపీ డ్రోన్ సర్వీస్ పోర్టల్",
+            "portalTitle": "ఏపీ డ్రోన్ మార్ట్",
             "subtitle": "సాంకేతికతతో వ్యవసాయం మరియు నిఘాలో విప్లవాత్మక మార్పులు",
             "tagline": "అందుబాటులో ఉన్న డ్రోన్ సేవలతో రైతులు మరియు వ్యాపారవేత్తలను శక్తివంతం చేయడం",
-            "selectPortal": "కొనసాగించడానికి ఒక పోర్టల్‌ను ఎంచుకోండి",
+            "selectPortal": "కొనసాగించడానికి ఒక మార్ట్‌ను ఎంచుకోండి",
             "customer": {
-                "title": "కస్టమర్ పోర్టల్",
+                "title": "కస్టమర్ మార్ట్",
                 "description": "డ్రోన్ సర్వీసులను బుక్ చేయండి, ఆర్డర్‌లను ట్రాక్ చేయండి, పరికరాలు మరియు విడిభాగాలను కొనుగులు చేయండి",
                 "features": "సేవలు • ట్రాకింగ్ • ఇ-కామర్స్ • మద్దతు"
             },
             "provider": {
-                "title": "సర్వీస్ ప్రొవైడర్ పోర్టల్",
+                "title": "సర్వీస్ ప్రొవైడర్ మార్ట్",
                 "description": "సేవలు, డ్రోన్‌లు, పైలట్లు, బుకింగ్‌లను నిర్వహించండి మరియు మీ ఆదాయాన్ని ట్రాక్ చేయండి",
                 "features": "సేవలు • బుకింగ్‌లు • ఆదాయం • విశ్లేషణలు"
             },
@@ -368,7 +368,7 @@
             "discovery": {
                 "pageTitle": "డ్రోన్ సర్వీస్ ప్రొవైడర్‌లను కనుగొనండి",
                 "pageSubtitle": "ఆంధ్రప్రదేశ్ అంతటా ధృవీకరించబడిన డ్రోన్ సర్వీస్ ప్రొవైడర్‌లతో కనెక్ట్ అవ్వండి",
-                "back": "పోర్టల్‌కు తిరిగి వెళ్లండి",
+                "back": "మార్ట్‌కు తిరిగి వెళ్లండి",
                 "viewMode": "వీక్షణ మోడ్",
                 "gridView": "గ్రిడ్ వీక్షణ",
                 "mapView": "మ్యాప్ వీక్షణ",

@@ -46,8 +46,8 @@ const App = () => {
                     <Route path="/customer/login" element={<PaymentProcess forceStep="login" />} />
                     <Route path="/customer/register" element={<PaymentProcess forceStep="register" />} />
 
-                    <Route path="/customer/*" element={<Placeholder title="Customer Portal" />} />
-                    <Route path="/provider/*" element={<Placeholder title="Service Provider Portal" />} />
+                    <Route path="/customer/*" element={<Placeholder title="Customer Mart" />} />
+                    <Route path="/provider/*" element={<Placeholder title="Service Provider Mart" />} />
                     <Route path="/department/*" element={<Placeholder title="Department Dashboard" />} />
                     <Route path="/admin/*" element={<Placeholder title="Admin Panel" />} />
 
