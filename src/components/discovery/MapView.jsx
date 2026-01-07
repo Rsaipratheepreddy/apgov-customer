@@ -1,184 +1,217 @@
 "use client";
 
-import React, { useState } from 'react';
-import { MapPin, X, Plus, Minus, Navigation, RotateCcw, Info, Star } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, X, Navigation, RotateCcw, Info, Star, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import useLanguage from '../../hooks/useLanguage';
 
-/**
- * Simplified SVG-based interactive map of Andhra Pradesh
- */
+// Fix for default Leaflet icons in Webpack/Next.js
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+// Custom Green Icon for providers
+const createCustomIcon = (isActive) => L.divIcon({
+    html: `
+        <div class="relative flex flex-col items-center">
+            <div class="w-8 h-8 ${isActive ? 'bg-[#154a21] scale-125' : 'bg-[#2e7d32]'} rounded-full border-2 border-white shadow-lg flex items-center justify-center transition-all duration-300">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+            </div>
+            <div class="w-1 h-2 bg-[#2e7d32] -mt-0.5"></div>
+        </div>
+    `,
+    className: 'custom-div-icon',
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
+});
+
+// Component to handle map center changes
+const RecenterMap = ({ center, zoom }) => {
+    const map = useMap();
+    useEffect(() => {
+        map.setView(center, zoom);
+    }, [center, zoom, map]);
+    return null;
+};
+
 const MapView = ({ providers, userLocation, isLocationEnabled, onEnableLocation, onProviderClick }) => {
     const { t } = useLanguage();
     const navigate = useNavigate();
     const [selectedProvider, setSelectedProvider] = useState(null);
-    const [zoom, setZoom] = useState(1);
-    const [offset, setOffset] = useState({ x: 0, y: 0 });
-
-    // Simplified District Centers on a 1000x800 coordinate system
-    const districtCoords = {
-        "Visakhapatnam": { x: 800, y: 200 },
-        "Vijayawada": { x: 500, y: 400 },
-        "Guntur": { x: 450, y: 450 },
-        "Tirupati": { x: 300, y: 700 },
-        "Kakinada": { x: 750, y: 300 },
-        "Anantapur": { x: 150, y: 650 },
-        "Chittoor": { x: 250, y: 750 },
-        "East Godavari": { x: 700, y: 250 },
-        "Krishna": { x: 550, y: 350 },
-        "Kurnool": { x: 200, y: 550 },
-        "Prakasam": { x: 350, y: 500 },
-        "Nellore": { x: 400, y: 600 },
-        "Srikakulam": { x: 900, y: 100 },
-        "Vizianagaram": { x: 850, y: 150 },
-        "West Godavari": { x: 600, y: 300 },
-        "Kadapa": { x: 300, y: 600 }
-    };
+    const [mapState, setMapState] = useState({
+        center: [15.9129, 79.7400], // Center of Andhra Pradesh
+        zoom: 7
+    });
 
     const handleReset = () => {
-        setZoom(1);
-        setOffset({ x: 0, y: 0 });
+        setMapState({
+            center: [15.9129, 79.7400],
+            zoom: 7
+        });
         setSelectedProvider(null);
     };
 
+    const handleMyLocation = () => {
+        if (isLocationEnabled && userLocation?.coordinates) {
+            setMapState({
+                center: [userLocation.coordinates.lat, userLocation.coordinates.lng],
+                zoom: 12
+            });
+        } else {
+            onEnableLocation();
+        }
+    };
+
     return (
-        <div className="relative w-full h-[60vh] md:h-[70vh] bg-[#f8fafc] border border-[#e2e8f0] rounded-xl overflow-hidden group">
-            {/* SVG Base Map */}
-            <div
-                className="w-full h-full cursor-grab active:cursor-grabbing transition-transform"
-                style={{ transform: `scale(${zoom}) translate(${offset.x}px, ${offset.y}px)` }}
+        <div className="relative w-full h-[60vh] md:h-[70vh] bg-[#f8fafc] border border-[#e2e8f0] rounded-2xl overflow-hidden shadow-inner group">
+            {/* Real Map Layer */}
+            <MapContainer
+                center={mapState.center}
+                zoom={mapState.zoom}
+                className="w-full h-full z-0"
+                zoomControl={false}
+                attributionControl={false}
             >
-                <svg viewBox="0 0 1000 800" className="w-full h-full">
-                    {/* AP State Boundary - Simplified Shape */}
-                    <path
-                        d="M900,50 L950,150 L800,300 L750,450 L600,600 L400,750 L200,780 L50,650 L100,500 L250,400 L400,200 L600,100 Z"
-                        fill="#ffffff"
-                        stroke="#e2e8f0"
-                        strokeWidth="2"
+                <TileLayer
+                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                />
+
+                <RecenterMap center={mapState.center} zoom={mapState.zoom} />
+
+                {/* Provider Markers */}
+                {providers.map((p) => (
+                    <Marker
+                        key={p.id}
+                        position={[p.location.coordinates.lat, p.location.coordinates.lng]}
+                        icon={createCustomIcon(selectedProvider?.id === p.id)}
+                        eventHandlers={{
+                            click: () => setSelectedProvider(p)
+                        }}
+                    >
+                        <Popup className="custom-popup">
+                            <div className="w-64 p-1">
+                                <div className="flex justify-between items-start mb-2">
+                                    <h4 className="font-black text-[#154a21] text-sm m-0 leading-tight">{p.name}</h4>
+                                    <div className="flex items-center gap-1 bg-[#f1f8f1] px-1.5 py-0.5 rounded-md">
+                                        <Star size={10} fill="#154a21" stroke="#154a21" />
+                                        <span className="text-[10px] font-black text-[#154a21]">{p.rating}</span>
+                                    </div>
+                                </div>
+                                <p className="text-[10px] text-[#64748b] font-bold mb-3 line-clamp-2 m-0 leading-normal">
+                                    {p.description}
+                                </p>
+                                <div className="flex items-center justify-between gap-2 border-t border-[#f1f5f9] pt-2">
+                                    <div className="text-[10px] font-black text-[#64748b] uppercase tracking-wider">
+                                        Starts from <span className="text-[#154a21]">₹{p.priceRange.min}</span>
+                                    </div>
+                                    <button
+                                        onClick={() => navigate(`/customer/provider/${p.id}`)}
+                                        className="bg-[#154a21] text-white px-3 py-1.5 rounded-lg text-[10px] font-bold flex items-center gap-1 hover:brightness-110 active:scale-95 transition-all"
+                                    >
+                                        View <ExternalLink size={10} />
+                                    </button>
+                                </div>
+                            </div>
+                        </Popup>
+                    </Marker>
+                ))}
+
+                {/* User Location Marker */}
+                {isLocationEnabled && userLocation?.coordinates && (
+                    <Marker
+                        position={[userLocation.coordinates.lat, userLocation.coordinates.lng]}
+                        icon={L.divIcon({
+                            html: `
+                                <div class="relative flex items-center justify-center">
+                                    <div class="absolute w-10 h-10 bg-[#154a21] rounded-full opacity-20 animate-ping"></div>
+                                    <div class="w-4 h-4 bg-[#154a21] rounded-full border-2 border-white shadow-lg"></div>
+                                </div>
+                            `,
+                            className: 'user-location-icon',
+                            iconSize: [40, 40],
+                            iconAnchor: [20, 20]
+                        })}
                     />
+                )}
+            </MapContainer>
 
-                    {/* Legend helper lines or water bodies */}
-                    <rect x="0" y="0" width="1000" height="800" fill="#154a21" fillOpacity="0.03" />
-
-                    {/* User Location Marker */}
-                    {isLocationEnabled && userLocation && (
-                        <g transform={`translate(${districtCoords[userLocation.district]?.x || 500}, ${districtCoords[userLocation.district]?.y || 400})`}>
-                            <circle r="12" fill="#154a21" fillOpacity="0.2">
-                                <animate attributeName="r" from="12" to="20" dur="2s" repeatCount="indefinite" />
-                                <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite" />
-                            </circle>
-                            <circle r="6" fill="#154a21" stroke="white" strokeWidth="2" />
-                        </g>
-                    )}
-
-                    {/* Provider Markers */}
-                    {providers.map((p) => {
-                        const coord = districtCoords[p.location.district] || { x: 500, y: 400 };
-                        const isActive = selectedProvider?.id === p.id;
-
-                        return (
-                            <g
-                                key={p.id}
-                                transform={`translate(${coord.x}, ${coord.y})`}
-                                onClick={() => setSelectedProvider(p)}
-                                className="cursor-pointer"
-                            >
-                                <path
-                                    d="M12,0 C5.37258249,0 0,5.37258249 0,12 C0,21 12,32 12,32 C12,32 24,21 24,12 C24,5.37258249 18.6274175,0 12,0 Z"
-                                    fill={isActive ? "#154a21" : "#2e7d32"}
-                                    transform="translate(-12, -32)"
-                                />
-                                <circle cx="0" cy="-20" r="4" fill="white" />
-                            </g>
-                        );
-                    })}
-                </svg>
-            </div>
-
-            {/* Map Content Overlay (Info) */}
-            <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-lg border border-[#e2e8f0] shadow-sm max-w-[240px]">
-                <div className="flex gap-2 items-start">
-                    <Info size={16} className="text-[#154a21] shrink-0 mt-0.5" />
-                    <p className="text-xs text-[#1e293b]">
-                        {t("customer.discovery.map.clickMarker")}
-                    </p>
+            {/* Map UI Overlays */}
+            <div className="absolute top-4 left-4 z-10 space-y-2 pointer-events-none">
+                <div className="bg-white/90 backdrop-blur-sm p-3 rounded-xl border border-[#e2e8f0] shadow-sm max-w-[240px] pointer-events-auto">
+                    <div className="flex gap-2 items-start">
+                        <Info size={16} className="text-[#154a21] shrink-0 mt-0.5" />
+                        <p className="text-[10px] md:text-xs font-bold text-[#64748b] leading-tight">
+                            {t("customer.discovery.map.clickMarker")}
+                        </p>
+                    </div>
                 </div>
             </div>
-
-            {/* Popover Card */}
-            {selectedProvider && (
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 bg-white rounded-xl shadow-2xl border border-[#e2e8f0] p-4 z-50 animate-fade-in-up">
-                    <button
-                        onClick={() => setSelectedProvider(null)}
-                        className="absolute top-3 right-3 text-[#64748b] active:scale-95"
-                    >
-                        <X size={18} />
-                    </button>
-
-                    <h4 className="font-black text-[#1d1d1f] text-sm md:text-base mb-1 line-clamp-1">{selectedProvider.name}</h4>
-                    <div className="flex items-center gap-1.5 mb-2">
-                        <Star size={14} fill="#154a21" stroke="#154a21" />
-                        <span className="text-xs font-black text-[#1d1d1f]">{selectedProvider.rating}</span>
-                        <span className="text-[#64748b] text-[10px] md:text-xs font-bold">• {selectedProvider.reviewCount} {t("customer.discovery.providerCard.reviews")}</span>
-                    </div>
-
-                    <div className="text-[10px] md:text-xs text-[#64748b] font-bold mb-3">
-                        {selectedProvider.services.length} {t("customer.discovery.filters.serviceType.all")} • {t("customer.discovery.providerCard.from")} ₹{selectedProvider.priceRange.min}
-                    </div>
-
-                    <button
-                        onClick={() => navigate(`/customer/provider/${selectedProvider.id}`)}
-                        className="w-full h-10 bg-[#154a21] text-white rounded-lg flex items-center justify-center gap-2 font-semibold text-sm active:scale-95 transition-transform"
-                    >
-                        {t("customer.discovery.providerCard.viewDetails")}
-                    </button>
-                </div>
-            )}
 
             {/* Map Controls */}
-            <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 flex flex-col bg-white border border-[#e2e8f0] rounded-xl shadow-md overflow-hidden">
-                <button onClick={() => setZoom(z => Math.min(z + 0.2, 3))} className="p-2 md:p-3 border-b border-[#e2e8f0] text-[#1e293b] active:bg-gray-50"><Plus size={18} /></button>
-                <button onClick={() => setZoom(z => Math.max(z - 0.2, 0.5))} className="p-2 md:p-3 border-b border-[#e2e8f0] text-[#1e293b] active:bg-gray-50"><Minus size={18} /></button>
-                <button onClick={onEnableLocation} className="p-2 md:p-3 border-b border-[#e2e8f0] text-[#154a21] active:bg-gray-50" title={t("customer.discovery.map.myLocation")}><Navigation size={18} /></button>
-                <button onClick={handleReset} className="p-2 md:p-3 text-[#64748b] active:bg-gray-50" title={t("customer.discovery.map.resetView")}><RotateCcw size={18} /></button>
+            <div className="absolute top-4 right-4 z-10 flex flex-col bg-white border border-[#e2e8f0] rounded-xl shadow-lg overflow-hidden">
+                <button
+                    onClick={handleMyLocation}
+                    className="p-3 border-b border-[#e2e8f0] text-[#154a21] hover:bg-gray-50 active:scale-95 transition-all"
+                    title={t("customer.discovery.map.myLocation")}
+                >
+                    <Navigation size={20} />
+                </button>
+                <button
+                    onClick={handleReset}
+                    className="p-3 text-[#64748b] hover:bg-gray-50 active:scale-95 transition-all"
+                    title={t("customer.discovery.map.resetView")}
+                >
+                    <RotateCcw size={20} />
+                </button>
             </div>
 
-            {/* Legend */}
-            <div className="absolute bottom-6 left-6 bg-white/95 border border-[#e2e8f0] p-4 rounded-lg shadow-sm">
-                <h5 className="text-xs font-bold uppercase tracking-wider text-[#1e293b] mb-2">
+            {/* Legend - Minimized on mobile */}
+            <div className="absolute bottom-6 left-6 z-10 bg-white/95 backdrop-blur-sm border border-[#e2e8f0] p-4 rounded-2xl shadow-xl hidden md:block">
+                <h5 className="text-[10px] font-black uppercase tracking-widest text-[#154a21] mb-3">
                     {t("customer.discovery.map.legend")}
                 </h5>
-                <div className="space-y-2">
+                <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                        <div className="w-3 h-3 rounded-full bg-[#154a21]" />
-                        <span className="text-xs text-[#64748b]">{t("customer.discovery.map.yourLocation")}</span>
+                        <div className="w-3 h-3 rounded-full bg-[#154a21] shadow-sm" />
+                        <span className="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">{t("customer.discovery.map.yourLocation")}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                        <MapPin size={14} className="text-[#154a21]" />
-                        <span className="text-xs text-[#64748b]">Service Providers</span>
+                        <div className="w-4 h-4 rounded-full bg-[#2e7d32] flex items-center justify-center shadow-sm">
+                            <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                        </div>
+                        <span className="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">Service Providers</span>
                     </div>
                 </div>
             </div>
 
             {/* Location Permission Prompt Overlay */}
             {!isLocationEnabled && (
-                <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] flex items-center justify-center p-6 z-[100]">
-                    <div className="bg-white rounded-2xl shadow-2xl border border-[#e2e8f0] p-8 max-w-sm text-center animate-fade-in-up">
-                        <div className="mx-auto w-16 h-16 bg-[#f1f8f1] rounded-full flex items-center justify-center text-[#154a21] mb-6">
+                <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] flex items-center justify-center p-6 z-[100]">
+                    <div className="bg-white rounded-[32px] shadow-2xl border border-[#e2e8f0] p-8 max-w-sm text-center animate-fade-in-up">
+                        <div className="mx-auto w-16 h-16 bg-[#f1f8f1] rounded-2xl flex items-center justify-center text-[#154a21] mb-6 rotate-3">
                             <MapPin size={32} />
                         </div>
-                        <h3 className="text-xl font-bold text-[#1e293b] mb-2">{t("customer.discovery.location.title")}</h3>
-                        <p className="text-[#64748b] text-sm mb-6 leading-relaxed">{t("customer.discovery.location.description")}</p>
+                        <h3 className="text-2xl font-black text-[#154a21] mb-2 tracking-tight">{t("customer.discovery.location.title")}</h3>
+                        <p className="text-[#64748b] text-sm font-bold mb-8 leading-relaxed italic">"{t("customer.discovery.location.description")}"</p>
                         <div className="flex flex-col gap-3">
                             <button
                                 onClick={onEnableLocation}
-                                className="w-full h-12 bg-[#154a21] text-white rounded-lg font-semibold active:scale-[0.98] transition-transform"
+                                className="w-full h-14 bg-[#154a21] text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-lg shadow-green-900/20 active:scale-[0.98] transition-all"
                             >
                                 {t("customer.discovery.location.allow")}
                             </button>
                             <button
-                                onClick={() => { }} // Just close prompt logic (mock)
-                                className="w-full h-12 bg-white text-[#64748b] border border-[#e2e8f0] rounded-lg font-medium active:scale-[0.98] transition-transform"
+                                onClick={() => { }} // Close logic
+                                className="w-full h-14 bg-white text-[#64748b] border border-[#e2e8f0] rounded-2xl font-black text-xs uppercase tracking-widest active:scale-[0.98] transition-all"
                             >
                                 {t("customer.discovery.location.deny")}
                             </button>
@@ -186,6 +219,20 @@ const MapView = ({ providers, userLocation, isLocationEnabled, onEnableLocation,
                     </div>
                 </div>
             )}
+
+            <style jsx global>{`
+                .custom-popup .leaflet-popup-content-wrapper {
+                    border-radius: 16px;
+                    padding: 4px;
+                    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+                }
+                .custom-popup .leaflet-popup-tip-container {
+                    display: none;
+                }
+                .custom-popup .leaflet-popup-content {
+                    margin: 8px;
+                }
+            `}</style>
         </div>
     );
 };

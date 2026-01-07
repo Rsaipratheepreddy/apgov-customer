@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import DiscoveryHeader from '../../components/discovery/DiscoveryHeader';
 import SearchControls from '../../components/discovery/SearchControls';
 import FilterSidebar from '../../components/discovery/FilterSidebar';
 import ProviderCard from '../../components/discovery/ProviderCard';
-import MapView from '../../components/discovery/MapView';
+const MapView = dynamic(() => import('../../components/discovery/MapView'), { ssr: false });
 import Footer from '../../components/Footer';
 import { SERVICE_PROVIDERS } from '../../constants/mockData';
 import { calculateDistance } from '../../utils/geoUtils';
